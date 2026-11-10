@@ -120,7 +120,7 @@ enum ItemEvents {
         var tried: [CGFloat] = []
         for attempt in 0..<4 {
             guard let rect = StatusAccess.frame(target.id), let start = StatusAccess.frame(item.id) else { throw AccessFailure.unavailable("Значок исчез.") }
-            if adjacent(item, target, left: true) || adjacent(item, target, left: false) { return }
+            if adjacent(item, target, left: left) { return }
             let edge = left ? rect.minX + 2 : rect.maxX - 2
             let offsets = [start.midX < rect.midX ? -start.width : 0, 0, -start.width, start.width].filter { !tried.contains($0) }
             guard let offset = offsets.first else { break }
@@ -145,7 +145,7 @@ enum ItemEvents {
             CGDisplayShowCursor(CGMainDisplayID())
             for _ in 0..<5 {
                 try await Task.sleep(for: .milliseconds(300))
-                if adjacent(item, target, left: true) || adjacent(item, target, left: false) { return }
+                if adjacent(item, target, left: left) || adjacent(item, target, left: !left) { return }
             }
             trace("move \(item.id) not confirmed: now \(StatusAccess.frame(item.id).map { Int($0.minX) } ?? -1)")
         }

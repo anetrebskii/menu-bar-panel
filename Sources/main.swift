@@ -142,6 +142,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         return window.frame.minX >= area.minX && window.frame.maxX <= area.maxX && window.frame.width > 0
     }
     func ensureButtonVisible() {
+        trace("button visible=\(buttonIsVisible) frame=\(status.button?.window?.frame ?? .zero) area=\(status.button?.window?.screen?.auxiliaryTopRightArea ?? .zero)")
         guard !buttonIsVisible, !working else { return }
         popover.performClose(nil)
         NSStatusBar.system.removeStatusItem(status)
@@ -327,6 +328,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
                 stack.addArrangedSubview(wrap)
             }
             width = max(bar.fittingSize.width + inset * 2, notes.isEmpty ? 0 : 280)
+            trace("panel row=\(rowWidth) bar=\(bar.fittingSize) items=\(current.map { Int($0.frame.width) })")
         }
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: content.view.leadingAnchor, constant: inset),
@@ -380,6 +382,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
                     throw AccessFailure.unavailable("Рядом с кнопкой нет места. Переместите кнопку правее с Command-перетаскиванием.")
                 }
                 try await ItemEvents.move(latest, beside: own, left: true)
+                if ItemEvents.adjacent(latest, own, left: false), let back = ownWindow() {
+                    trace("item landed right of the button, moving the button back")
+                    try await ItemEvents.move(back, beside: latest, left: false)
+                }
                 errorText = nil
             } catch {
                 trace("select failed: \(error.localizedDescription)")
@@ -387,6 +393,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
                 if popover.isShown { refresh() } else { toggle() }
             }
             working = false
+            ensureButtonVisible()
         }
     }
 }
