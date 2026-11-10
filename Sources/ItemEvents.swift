@@ -122,7 +122,8 @@ enum ItemEvents {
             guard let rect = StatusAccess.frame(target.id), let start = StatusAccess.frame(item.id) else { throw AccessFailure.unavailable("Значок исчез.") }
             if adjacent(item, target, left: left) { return }
             let edge = left ? rect.minX + 2 : rect.maxX - 2
-            let offsets = [start.midX < rect.midX ? -start.width : 0, 0, -start.width, start.width].filter { !tried.contains($0) }
+            let w = start.width
+            let offsets = (left ? [-w / 2, -w / 4, -w * 3 / 4, 0] : [w / 2, w / 4, w * 3 / 4, 0]).filter { !tried.contains($0) }
             guard let offset = offsets.first else { break }
             tried.append(offset)
             let x = edge + offset

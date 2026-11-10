@@ -374,12 +374,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         working = true
         Task { @MainActor in
             do {
-                guard StatusAccess.trusted, StatusAccess.canCapture, let own = ownWindow(),
+                guard StatusAccess.trusted, StatusAccess.canCapture, var own = ownWindow(),
                       let screen = status.button?.window?.screen else { throw AccessFailure.unavailable("Нет доступа к значкам.") }
                 guard let latest = try StatusAccess.windows().first(where: { $0.id == item.id && $0.pid == item.pid }) else { throw AccessFailure.unavailable("Значок исчез. Обновите панель.") }
-                guard own.frame.minX - latest.frame.width > StatusAccess.displayBounds(screen).minX,
-                      screen.auxiliaryTopRightArea.map({ own.frame.minX - latest.frame.width >= StatusAccess.displayBounds(screen).minX + $0.minX - screen.frame.minX }) ?? true else {
-                    throw AccessFailure.unavailable("Рядом с кнопкой нет места. Переместите кнопку правее с Command-перетаскиванием.")
+                let bounds = StatusAccess.displayBounds(screen)
+                let visibleStart = screen.auxiliaryTopRightArea.map { bounds.minX + $0.minX - screen.frame.minX } ?? bounds.minX
+                for _ in 0..<4 where own.frame.minX - latest.frame.width - 48 < visibleStart {
+                    guard let next = try StatusAccess.windows().filter({ $0.onScreen && abs($0.frame.minY - own.frame.minY) < 2 && $0.frame.minX >= own.frame.maxX - 1 && $0.title != "AudioVideoModule" })
+                        .min(by: { $0.frame.minX < $1.frame.minX }) else { break }
+                    trace("no room left of the button, stepping it right of \(next.id)")
+                    try await ItemEvents.move(own, beside: next, left: false)
+                    guard let moved = ownWindow() else { break }
+                    own = moved
                 }
                 try await ItemEvents.move(latest, beside: own, left: true)
                 if ItemEvents.adjacent(latest, own, left: false), let back = ownWindow() {
