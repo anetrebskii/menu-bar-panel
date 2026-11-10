@@ -1,6 +1,7 @@
 import AppKit
 import ApplicationServices
 import ScreenCaptureKit
+import ServiceManagement
 
 final class FlippedView: NSView {
     override var isFlipped: Bool { true }
@@ -64,6 +65,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         if CommandLine.arguments.contains("--appearance=dark") { appearanceOverride = NSAppearance(named: .darkAqua) }
         DistributedNotificationCenter.default().addObserver(forName: Self.showNotification, object: nil, queue: .main) { [weak self] _ in
             MainActor.assumeIsolated { if self?.popover.isShown == false { self?.toggle() } }
+        }
+        if !diagnosing, !UserDefaults.standard.bool(forKey: "LoginItemRegistered") {
+            do {
+                try SMAppService.mainApp.register()
+                UserDefaults.standard.set(true, forKey: "LoginItemRegistered")
+            } catch { trace("login item: \(error.localizedDescription)") }
         }
         configureStatusButton()
         popover.behavior = .transient

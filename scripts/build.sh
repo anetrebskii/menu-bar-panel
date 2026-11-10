@@ -8,7 +8,7 @@ if [[ -z "$SIGN_IDENTITY" ]]; then
     exit 1
 fi
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" .build/module-cache
-xcrun swiftc -swift-version 5 -O -target arm64-apple-macos14.0 -module-cache-path "$PWD/.build/module-cache" Sources/*.swift -o "$APP/Contents/MacOS/MenuBarPanel" -framework AppKit -framework ApplicationServices -framework ScreenCaptureKit
+xcrun swiftc -swift-version 5 -O -target arm64-apple-macos14.0 -module-cache-path "$PWD/.build/module-cache" Sources/*.swift -o "$APP/Contents/MacOS/MenuBarPanel" -framework AppKit -framework ApplicationServices -framework ScreenCaptureKit -framework ServiceManagement
 cat > "$APP/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
