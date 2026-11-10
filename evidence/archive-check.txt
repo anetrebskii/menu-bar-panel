@@ -1,0 +1,153 @@
+Archive:  dist/MenuBarPanel-0.1.1-arm64.zip
+    testing: MenuBarPanel/            OK
+    testing: MenuBarPanel/Source/     OK
+    testing: MenuBarPanel/Source/evidence/   OK
+    testing: MenuBarPanel/Source/evidence/live-process.txt   OK
+    testing: __MACOSX/                OK
+    testing: __MACOSX/MenuBarPanel/   OK
+    testing: __MACOSX/MenuBarPanel/Source/   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._live-process.txt   OK
+    testing: MenuBarPanel/Source/evidence/journal-checks.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._journal-checks.txt   OK
+    testing: MenuBarPanel/Source/evidence/diagnostics.json   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._diagnostics.json   OK
+    testing: MenuBarPanel/Source/evidence/review.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._review.stderr   OK
+    testing: MenuBarPanel/Source/evidence/build.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._build.txt   OK
+    testing: MenuBarPanel/Source/evidence/package.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._package.txt   OK
+    testing: MenuBarPanel/Source/evidence/render-report.json   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._render-report.json   OK
+    testing: MenuBarPanel/Source/evidence/launchservices.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._launchservices.stderr   OK
+    testing: MenuBarPanel/Source/evidence/verification.md   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._verification.md   OK
+    testing: MenuBarPanel/Source/evidence/live.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._live.stderr   OK
+    testing: MenuBarPanel/Source/evidence/reproducible-build.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._reproducible-build.txt   OK
+    testing: MenuBarPanel/Source/evidence/signature.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._signature.txt   OK
+    testing: MenuBarPanel/Source/evidence/archive-check.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._archive-check.txt   OK
+    testing: MenuBarPanel/Source/evidence/diagnostics-launchservices.json   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._diagnostics-launchservices.json   OK
+    testing: MenuBarPanel/Source/evidence/render.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._render.stderr   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/own-windows.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._own-windows.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/tcc-excerpt.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._tcc-excerpt.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/ui-trace.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._ui-trace.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/hidden-position.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._hidden-position.stderr   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/fixed-launchservices.json   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._fixed-launchservices.json   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/onscreen-probe.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._onscreen-probe.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/signing.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._signing.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/hidden-position-launchservices.json   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._hidden-position-launchservices.json   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/final-diagnostic.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._final-diagnostic.stderr   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/native-ui.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._native-ui.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/final-ui-trace.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._final-ui-trace.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/processes.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._processes.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/fixed.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._fixed.stderr   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/current.json   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._current.json   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/final-launchservices.json   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._final-launchservices.json   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/diagnostic.stderr   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._diagnostic.stderr   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/stable-signing.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._stable-signing.txt   OK
+    testing: MenuBarPanel/Source/evidence/permission-issue/signature-continuity.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/permission-issue/._signature-continuity.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._permission-issue   OK
+    testing: MenuBarPanel/Source/evidence/binary.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/evidence/._binary.txt   OK
+    testing: __MACOSX/MenuBarPanel/Source/._evidence   OK
+    testing: MenuBarPanel/Source/LICENSE   OK
+    testing: __MACOSX/MenuBarPanel/Source/._LICENSE   OK
+    testing: MenuBarPanel/Source/THIRD_PARTY.md   OK
+    testing: __MACOSX/MenuBarPanel/Source/._THIRD_PARTY.md   OK
+    testing: MenuBarPanel/Source/Tests/   OK
+    testing: MenuBarPanel/Source/Tests/JournalChecks.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/Tests/   OK
+    testing: __MACOSX/MenuBarPanel/Source/Tests/._JournalChecks.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/._Tests   OK
+    testing: MenuBarPanel/Source/README.md   OK
+    testing: __MACOSX/MenuBarPanel/Source/._README.md   OK
+    testing: MenuBarPanel/Source/scripts/   OK
+    testing: MenuBarPanel/Source/scripts/build.sh   OK
+    testing: __MACOSX/MenuBarPanel/Source/scripts/   OK
+    testing: __MACOSX/MenuBarPanel/Source/scripts/._build.sh   OK
+    testing: MenuBarPanel/Source/scripts/package.sh   OK
+    testing: __MACOSX/MenuBarPanel/Source/scripts/._package.sh   OK
+    testing: MenuBarPanel/Source/scripts/check.sh   OK
+    testing: __MACOSX/MenuBarPanel/Source/scripts/._check.sh   OK
+    testing: __MACOSX/MenuBarPanel/Source/._scripts   OK
+    testing: MenuBarPanel/Source/Sources/   OK
+    testing: MenuBarPanel/Source/Sources/Restoration.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/Sources/   OK
+    testing: __MACOSX/MenuBarPanel/Source/Sources/._Restoration.swift   OK
+    testing: MenuBarPanel/Source/Sources/StatusAccess.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/Sources/._StatusAccess.swift   OK
+    testing: MenuBarPanel/Source/Sources/ItemEvents.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/Sources/._ItemEvents.swift   OK
+    testing: MenuBarPanel/Source/Sources/main.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/Sources/._main.swift   OK
+    testing: MenuBarPanel/Source/Sources/SourceApplication.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/Sources/._SourceApplication.swift   OK
+    testing: __MACOSX/MenuBarPanel/Source/._Sources   OK
+    testing: MenuBarPanel/Source/doc/   OK
+    testing: MenuBarPanel/Source/doc/ux/   OK
+    testing: MenuBarPanel/Source/doc/ux/menu-bar-panel.md   OK
+    testing: __MACOSX/MenuBarPanel/Source/doc/   OK
+    testing: __MACOSX/MenuBarPanel/Source/doc/ux/   OK
+    testing: __MACOSX/MenuBarPanel/Source/doc/ux/._menu-bar-panel.md   OK
+    testing: __MACOSX/MenuBarPanel/Source/doc/._ux   OK
+    testing: MenuBarPanel/Source/doc/research.md   OK
+    testing: __MACOSX/MenuBarPanel/Source/doc/._research.md   OK
+    testing: __MACOSX/MenuBarPanel/Source/._doc   OK
+    testing: __MACOSX/MenuBarPanel/._Source   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/_CodeSignature/   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/_CodeSignature/CodeResources   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/_CodeSignature/   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/_CodeSignature/._CodeResources   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/.__CodeSignature   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/MacOS/   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/MacOS/MenuBarPanel   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/MacOS/   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/MacOS/._MenuBarPanel   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/._MacOS   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/Resources/   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/Resources/LICENSE   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/Resources/   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/Resources/._LICENSE   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/Resources/THIRD_PARTY.md   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/Resources/._THIRD_PARTY.md   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/._Resources   OK
+    testing: MenuBarPanel/Menu Bar Panel.app/Contents/Info.plist   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/Contents/._Info.plist   OK
+    testing: __MACOSX/MenuBarPanel/Menu Bar Panel.app/._Contents   OK
+    testing: __MACOSX/MenuBarPanel/._Menu Bar Panel.app   OK
+No errors detected in compressed data of dist/MenuBarPanel-0.1.1-arm64.zip.
+/var/folders/c3/2y8b2_v56c9bl7_qfsfg9tsh0000gn/T//menu-bar-panel-archive.1F2Kbn/MenuBarPanel/Menu Bar Panel.app: valid on disk
+/var/folders/c3/2y8b2_v56c9bl7_qfsfg9tsh0000gn/T//menu-bar-panel-archive.1F2Kbn/MenuBarPanel/Menu Bar Panel.app: satisfies its Designated Requirement
+PASS: archive CRC, extracted Developer ID app signature, corresponding Sources/scripts/Tests match current delivery.

@@ -1,0 +1,10 @@
+2026-11-10, actual LaunchServices .app on macOS 26.5.2, physical 1352x878 @2x notch display.
+Native CUA successfully bound the real denied-access popover in an intermediate Developer ID build.
+AX content: Разрешите управление значками; Открыть настройки Accessibility; Проверить снова; Выйти.
+Light appearance screenshot rendered the real AppKit popover: readable native title/body/buttons, visible first-button focus ring, no clipping in the cropped window.
+Tab attempt did not advance the observed focus. Code was changed to explicit own-panel Tab/Shift-Tab traversal afterward; final behavior remains unverified.
+Escape was attempted; the following native window observation timed out. This is not accepted as proof of dismissal.
+Final native bind attempts (including exact delivered .app path and --appearance=dark) returned cgWindowNotFound.
+Full-screen context, final light/dark UI review, normal status-button clicks, outside click, keyboard dismissal/navigation and UI Quit are NOT PASSED.
+The final process's own trace confirms the popover was shown, but active=false/key=false for programmatic --show; this does not prove interactive focus.
+No mockup, fake item images, or synthetic successful integration state was used. No third-party icon was moved.

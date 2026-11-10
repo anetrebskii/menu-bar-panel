@@ -1,0 +1,5 @@
+PID 87495 dynamicValidity 0
+info 0
+status 570425857
+unique 7fbe68d97e3a169d4d7b29a7eb932c306594a412
+designated-requirement identifier "net.thealex.menu-bar-panel" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MQKD7Z7V2L

@@ -1,0 +1,10 @@
+{
+  "accessibility" : false,
+  "contentSize" : "{390, 238}",
+  "permissionButtons" : [
+    "Открыть настройки Accessibility"
+  ],
+  "reviewWindowNumber" : 250343,
+  "reviewWindowVisible" : true,
+  "screenRecording" : false
+}

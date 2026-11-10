@@ -1,0 +1,22 @@
+{
+  "accessibility" : false,
+  "bundlePath" : "\/Users\/alex\/Projects\/mine\/menu-bar-panel\/dist\/Menu Bar Panel.app",
+  "buttonFrame" : "{{1160, 848}, {38, 30}}",
+  "buttonHostedWindowOnScreen" : true,
+  "buttonPrivateFrame" : "{{1160, 0}, {38, 30}}",
+  "buttonRightSafeArea" : "{{759, 849}, {593, 29}}",
+  "buttonVisibleOutsideNotch" : true,
+  "buttonWindowNumber" : 4294967296,
+  "popoverShown" : false,
+  "restorePending" : false,
+  "screenRecording" : false,
+  "screens" : [
+    {
+      "frame" : "{{0, 0}, {1352, 878}}",
+      "safeTop" : 29,
+      "scale" : 2
+    }
+  ],
+  "statusWindowCount" : 18,
+  "windowServerAPI" : true
+}

@@ -1,0 +1,19 @@
+{
+  "accessibility" : true,
+  "restorePending" : false,
+  "screenRecording" : true,
+  "screens" : [
+    {
+      "frame" : "{{0, 0}, {1352, 878}}",
+      "safeTop" : 29,
+      "scale" : 2
+    },
+    {
+      "frame" : "{{1352, -22}, {1440, 900}}",
+      "safeTop" : 0,
+      "scale" : 2
+    }
+  ],
+  "statusWindowCount" : 36,
+  "windowServerAPI" : true
+}

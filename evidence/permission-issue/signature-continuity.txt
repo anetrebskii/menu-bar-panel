@@ -1,0 +1,2 @@
+PASS: designated requirement unchanged across code rebuilds with Developer ID.
+designated => identifier "net.thealex.menu-bar-panel" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MQKD7Z7V2L

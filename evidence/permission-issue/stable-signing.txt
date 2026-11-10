@@ -1,0 +1,13 @@
+Executable=/Users/alex/Projects/mine/menu-bar-panel/dist/Menu Bar Panel.app/Contents/MacOS/MenuBarPanel
+Identifier=net.thealex.menu-bar-panel
+Format=app bundle with Mach-O thin (arm64)
+CodeDirectory v=20400 size=798 flags=0x0(none) hashes=18+3 location=embedded
+Signature size=4682
+Authority=Developer ID Application: Aleksandr Netrebskii (MQKD7Z7V2L)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Signed Time=10 Nov 2026 at 06:20:37
+Info.plist entries=10
+TeamIdentifier=MQKD7Z7V2L
+Sealed Resources version=2 rules=13 files=2
+designated => identifier "net.thealex.menu-bar-panel" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MQKD7Z7V2L

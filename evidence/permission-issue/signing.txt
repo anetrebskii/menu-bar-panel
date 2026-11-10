@@ -1,0 +1,23 @@
+Executable=/Users/alex/Projects/mine/menu-bar-panel/dist/Menu Bar Panel.app/Contents/MacOS/MenuBarPanel
+Identifier=net.thealex.menu-bar-panel
+Format=app bundle with Mach-O thin (arm64)
+CodeDirectory v=20400 size=787 flags=0x2(adhoc) hashes=18+3 location=embedded
+VersionPlatform=1
+VersionMin=917504
+VersionSDK=1705216
+Hash type=sha256 size=32
+CandidateCDHash sha256=94ff3485448086997b280f69cd6c8651eb9316ea
+CandidateCDHashFull sha256=94ff3485448086997b280f69cd6c8651eb9316eae465a0f23e25510863711017
+Hash choices=sha256
+CMSDigest=94ff3485448086997b280f69cd6c8651eb9316eae465a0f23e25510863711017
+CMSDigestType=2
+Executable Segment base=0
+Executable Segment limit=131072
+Executable Segment flags=0x1
+Page size=16384
+CDHash=94ff3485448086997b280f69cd6c8651eb9316ea
+Signature=adhoc
+Info.plist entries=10
+TeamIdentifier=not set
+Sealed Resources version=2 rules=13 files=2
+# designated => cdhash H"94ff3485448086997b280f69cd6c8651eb9316ea"

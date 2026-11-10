@@ -1,0 +1,7 @@
+ownPIDs [47142]
+["kCGWindowLayer": 25, "kCGWindowIsOnscreen": 1, "kCGWindowBounds": {
+    Height = 264;
+    Width = 416;
+    X = 936;
+    Y = 26;
+}, "kCGWindowAlpha": 1, "kCGWindowOwnerName": Menu Bar Panel, "kCGWindowStoreType": 1, "kCGWindowSharingState": 1, "kCGWindowOwnerPID": 47142, "kCGWindowNumber": 250505, "kCGWindowName": , "kCGWindowMemoryUsage": 2368]

@@ -1,0 +1,1 @@
+63956 /Users/alex/Proj /Users/alex/Projects/mine/menu-bar-panel/dist/Menu Bar Panel.app/Contents/MacOS/MenuBarPanel --show

@@ -1,0 +1,2 @@
+/Users/alex/Projects/mine/menu-bar-panel/dist/Menu Bar Panel.app: replacing existing signature
+/Users/alex/Projects/mine/menu-bar-panel/dist/Menu Bar Panel.app

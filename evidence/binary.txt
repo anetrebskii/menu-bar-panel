@@ -1,0 +1,1 @@
+dist/Menu Bar Panel.app/Contents/MacOS/MenuBarPanel: Mach-O 64-bit executable arm64

@@ -1,0 +1,2 @@
+PASS: durable item/source identity and both neighbors, legacy journal without sourcePID, reopen, second move lock, corrupt journal fail closed, corrupt bytes preserved, missing neighbor guard
+No mouse events posted; fixture journals only; no user preferences or menu layout modified.

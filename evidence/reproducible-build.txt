@@ -1,0 +1,3 @@
+/var/folders/c3/2y8b2_v56c9bl7_qfsfg9tsh0000gn/T//menu-bar-panel-rebuild.xtUXsM/Menu Bar Panel.app: replacing existing signature
+/var/folders/c3/2y8b2_v56c9bl7_qfsfg9tsh0000gn/T//menu-bar-panel-rebuild.xtUXsM/Menu Bar Panel.app
+PASS: unsigned Mach-O payload byte-identical after independent rebuild. Developer ID CMS signature is excluded from byte comparison.

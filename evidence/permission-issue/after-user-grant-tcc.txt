@@ -1,0 +1,3 @@
+2026-11-10 06:55:56.404 I  tccd[96858:af4b370] [com.apple.TCC:access] Update Access Record: kTCCServiceAccessibility for net.thealex.menu-bar-panel to Allowed (System Set) (v1) at 1794279356 (2026-11-10 02:55:56 +0000)
+	 CodeReq: identifier "net.thealex.menu-bar-panel" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MQKD7Z7V2L
+2026-11-10 06:59:01.732 I  tccd[96858:af4eb66] [com.apple.TCC:access] -[TCCDAccessIdentity matchesCodeRequirement:]: SecStaticCodeCheckValidity() static code (0xb64ef4c00) from net.thealex.menu-bar-panel : cdhash H"3e4aa531a9efe204f02cff4223ae5db3abb15b4a"; status: -67050
