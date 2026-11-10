@@ -195,6 +195,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         refresh()
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         popover.contentViewController?.view.window?.makeKey()
+        DispatchQueue.main.async { [self] in
+            let want = content.preferredContentSize
+            trace("panel want=\(want) popover=\(popover.contentSize) view=\(content.view.frame.size) window=\(content.view.window?.frame.size ?? .zero)")
+            if popover.isShown, content.view.frame.width < want.width - 1 { popover.contentSize = want }
+        }
         content.view.window?.makeFirstResponder(nil)
         traceUI("shown")
     }
