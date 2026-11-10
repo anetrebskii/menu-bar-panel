@@ -48,7 +48,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         return item
     }
     var status = makeStatusItem()
-    let popover = NSPopover()
+    var popover = NSPopover()
     let content = ContentController()
     var current: [StatusWindow] = []
     var working = false
@@ -190,6 +190,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         traceUI("toggle")
         if popover.isShown { popover.performClose(nil); return }
         guard let button = status.button else { return }
+        let fresh = NSPopover()
+        fresh.behavior = .transient
+        fresh.delegate = self
+        fresh.contentViewController = content
+        popover = fresh
         NSApp.activate(ignoringOtherApps: true)
         popover.appearance = appearanceOverride ?? NSAppearance(named: button.effectiveAppearance.bestMatch(from: [.aqua, .darkAqua]) ?? .aqua)
         refresh()
@@ -198,7 +203,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         DispatchQueue.main.async { [self] in
             let want = content.preferredContentSize
             trace("panel want=\(want) popover=\(popover.contentSize) view=\(content.view.frame.size) window=\(content.view.window?.frame.size ?? .zero)")
-            if popover.isShown, content.view.frame.width < want.width - 1 { popover.contentSize = want }
         }
         content.view.window?.makeFirstResponder(nil)
         traceUI("shown")
