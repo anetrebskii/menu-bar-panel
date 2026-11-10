@@ -112,18 +112,20 @@ enum ItemEvents {
         guard let i = line.firstIndex(of: item.id), let j = line.firstIndex(of: target.id) else { return false }
         return left ? i + 1 == j : i == j + 1
     }
-    static func move(_ item: StatusWindow, beside target: StatusWindow, left: Bool) async throws {
+    static func checkHands() throws {
         let held = CGEventSource.flagsState(.hidSystemState).intersection([.maskCommand, .maskControl, .maskAlternate, .maskShift])
         guard held.isEmpty, !CGEventSource.buttonState(.hidSystemState, button: .left) else {
             throw AccessFailure.unavailable("Отпустите кнопки мыши и клавиши-модификаторы, затем повторите.")
         }
+    }
+    static func move(_ item: StatusWindow, beside target: StatusWindow, left: Bool) async throws {
         var tried: [CGFloat] = []
         for attempt in 0..<4 {
             guard let rect = StatusAccess.frame(target.id), let start = StatusAccess.frame(item.id) else { throw AccessFailure.unavailable("Значок исчез.") }
             if adjacent(item, target, left: left) { return }
             let edge = left ? rect.minX + 2 : rect.maxX - 2
             let w = start.width
-            let offsets = (left ? [-w / 2, -w / 4, -w * 3 / 4, 0] : [w / 2, w / 4, w * 3 / 4, 0]).filter { !tried.contains($0) }
+            let offsets = (left ? [-w, -w * 3 / 4, -w / 2, 0] : [w / 4, w / 2, 0, w * 3 / 4]).filter { !tried.contains($0) }
             guard let offset = offsets.first else { break }
             tried.append(offset)
             let x = edge + offset
@@ -146,9 +148,10 @@ enum ItemEvents {
             CGDisplayShowCursor(CGMainDisplayID())
             for _ in 0..<5 {
                 try await Task.sleep(for: .milliseconds(300))
-                if adjacent(item, target, left: left) || adjacent(item, target, left: !left) { return }
+                if adjacent(item, target, left: left) { return }
             }
             trace("move \(item.id) not confirmed: now \(StatusAccess.frame(item.id).map { Int($0.minX) } ?? -1)")
+            if adjacent(item, target, left: !left) { trace("move \(item.id) landed on the other side"); return }
         }
         trace("move \(item.id) gave up")
     }

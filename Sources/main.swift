@@ -377,19 +377,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
                 guard StatusAccess.trusted, StatusAccess.canCapture, var own = ownWindow(),
                       let screen = status.button?.window?.screen else { throw AccessFailure.unavailable("Нет доступа к значкам.") }
                 guard let latest = try StatusAccess.windows().first(where: { $0.id == item.id && $0.pid == item.pid }) else { throw AccessFailure.unavailable("Значок исчез. Обновите панель.") }
+                try ItemEvents.checkHands()
                 let bounds = StatusAccess.displayBounds(screen)
                 let visibleStart = screen.auxiliaryTopRightArea.map { bounds.minX + $0.minX - screen.frame.minX } ?? bounds.minX
-                for _ in 0..<4 where own.frame.minX - latest.frame.width - 48 < visibleStart {
-                    guard let next = try StatusAccess.windows().filter({ $0.onScreen && abs($0.frame.minY - own.frame.minY) < 2 && $0.frame.minX >= own.frame.maxX - 1 && $0.title != "AudioVideoModule" })
-                        .min(by: { $0.frame.minX < $1.frame.minX }) else { break }
-                    trace("no room left of the button, stepping it right of \(next.id)")
+                for _ in 0..<4 {
+                    let line = try StatusAccess.windows().filter { $0.onScreen && abs($0.frame.minY - own.frame.minY) < 2 && $0.id != own.id && $0.id != latest.id }
+                    let leftCount = line.filter { $0.frame.minX >= visibleStart - 1 && $0.frame.maxX <= own.frame.minX + 1 }.count
+                    guard leftCount < 2 || own.frame.minX - latest.frame.width - 48 < visibleStart else { break }
+                    guard let next = line.filter({ $0.frame.minX >= own.frame.maxX - 1 && $0.title != "AudioVideoModule" }).min(by: { $0.frame.minX < $1.frame.minX }) else { break }
+                    trace("button is \(leftCount + 1) from the left, stepping it right of \(next.id)")
                     try await ItemEvents.move(own, beside: next, left: false)
                     guard let moved = ownWindow() else { break }
                     own = moved
                 }
                 try await ItemEvents.move(latest, beside: own, left: true)
+                try await Task.sleep(for: .milliseconds(400))
                 if ItemEvents.adjacent(latest, own, left: false), let back = ownWindow() {
-                    trace("item landed right of the button, moving the button back")
+                    trace("item landed right of the button, moving the button right of it")
                     try await ItemEvents.move(back, beside: latest, left: false)
                 }
                 errorText = nil
