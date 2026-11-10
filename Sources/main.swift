@@ -38,9 +38,11 @@ final class ItemButton: NSButton {
 final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     static let positionKey = "NSStatusItem Preferred Position MenuBarPanelButton"
     static func makeStatusItem(rightmost: Bool = false) -> NSStatusItem {
-        if rightmost || UserDefaults.standard.object(forKey: positionKey) == nil { UserDefaults.standard.set(0, forKey: positionKey) }
         let item = NSStatusBar.system.statusItem(withLength: 0)
-        item.autosaveName = "MenuBarPanelButton"
+        if !CommandLine.arguments.contains("--diagnose") {
+            if rightmost || UserDefaults.standard.object(forKey: positionKey) == nil { UserDefaults.standard.set(0, forKey: positionKey) }
+            item.autosaveName = "MenuBarPanelButton"
+        }
         item.length = NSStatusItem.squareLength
         return item
     }
