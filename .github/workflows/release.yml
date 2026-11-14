@@ -1,0 +1,78 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['**.md', 'LICENSE']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: macos-26
+    env:
+      VERSION: 0.2.${{ github.run_number }}
+      BUILD: ${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check secrets
+        id: check
+        env:
+          CERT_P12: ${{ secrets.DEVELOPER_ID_P12 }}
+          NOTARY_KEY_P8: ${{ secrets.NOTARY_KEY_P8 }}
+        run: |
+          if [ -z "$CERT_P12" ] || [ -z "$NOTARY_KEY_P8" ]; then
+            echo "::warning::Release skipped: run scripts/set-release-secrets.sh to set the signing and notarization secrets (see README)."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Import Developer ID certificate
+        if: steps.check.outputs.ready == 'true'
+        env:
+          CERT_P12: ${{ secrets.DEVELOPER_ID_P12 }}
+          CERT_PASSWORD: ${{ secrets.DEVELOPER_ID_P12_PASSWORD }}
+        run: |
+          KC="$RUNNER_TEMP/signing.keychain-db"
+          KCPW=$(uuidgen)
+          echo "$CERT_P12" | base64 --decode > "$RUNNER_TEMP/cert.p12"
+          security create-keychain -p "$KCPW" "$KC"
+          security set-keychain-settings -lut 21600 "$KC"
+          security unlock-keychain -p "$KCPW" "$KC"
+          security import "$RUNNER_TEMP/cert.p12" -P "$CERT_PASSWORD" -A -t cert -f pkcs12 -k "$KC"
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KCPW" "$KC" >/dev/null
+          security list-keychains -d user | xargs security list-keychains -d user -s "$KC"
+          rm "$RUNNER_TEMP/cert.p12"
+          security find-identity -v -p codesigning "$KC"
+
+      - name: Build, sign and notarize
+        if: steps.check.outputs.ready == 'true'
+        env:
+          NOTARY_KEY_P8: ${{ secrets.NOTARY_KEY_P8 }}
+          NOTARY_KEY_ID: ${{ secrets.NOTARY_KEY_ID }}
+          NOTARY_ISSUER_ID: ${{ secrets.NOTARY_ISSUER_ID }}
+        run: |
+          export NOTARY_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          printf '%s\n' "$NOTARY_KEY_P8" > "$NOTARY_KEY_PATH"
+          scripts/release.sh
+          rm "$NOTARY_KEY_PATH"
+
+      - name: Publish GitHub release
+        if: steps.check.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v$VERSION" "dist/MenuBarPanel-$VERSION-arm64.zip" dist/SHA256SUMS \
+            --title "Menu Bar Panel $VERSION" --generate-notes --target "$GITHUB_SHA"
+
+      - name: Remove signing keychain
+        if: always() && steps.check.outputs.ready == 'true'
+        run: security delete-keychain "$RUNNER_TEMP/signing.keychain-db" || true
